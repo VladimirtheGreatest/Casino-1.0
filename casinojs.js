@@ -1,4 +1,4 @@
-/* function to generate an array */
+/* function to generate an array,   Random generated number  found in this array, will trigger small or big win or special event with "free spins" */
 
 function range(start, end) {
   return Array(end - start + 1).fill().map((_, idx) => start + idx)
@@ -8,67 +8,95 @@ function range(start, end) {
 /*jackpot, if this variable is generated, you hit the jackpot*/
 var jackpot = "99999"; // 50000 bet multiplier  (jackpot icon visible in the corner, with each spin increase bet multiplier function)
 
-var smallwin = range(1, 8000); // 1.5 bet multiplier  8% chance to win a spin  (1 clients bet will use 4 spins)
+var smallwin = range(1, 4000); // 1.5 bet multiplier  4% chance to win a spin  (1 clients bet will use 4 spins)
 
-var bigwin = range(25000, 30000); // 10 bet multiplier  5% chance to win
+var bigwin = range(28000, 30000); // 10 bet multiplier  2% chance to win
 
 var extraspin = range(40000, 42000); // extra 20 spins, this will be a special feature, 20 auto spins with the special random multiplicator
 
-var bankroll = 0 // current bankroll, player needs to make a deposit before playing, after successful deposit will be able to adjust the size of the bet which will affect the maximum winning multiplier.
+var bankroll = "0";
 
-/*function to generate random number*/
+
+
+/*this function will find out if player have enough money to play, if not, player will be encouraged to deposit before he can wager*/
 
 function randomnumber() {
 
 
-  var startTime = new Date().getTime();
-  var interval = setInterval(function() {
-    if (new Date().getTime() - startTime > 5000) {
-      clearInterval(interval);
-      alert("No win this time");
-      return;
-    }
-    var result = Math.floor(Math.random() * 100000);
-    document.getElementById("number").innerHTML = result;
-    if (result === jackpot) {
-      clearInterval(interval);
-      alert("jackpot");
-    } else if (extraspin.includes(result)) {
-      document.getElementById("special").innerHTML = "Your extra spin! Click here!";
-      clearInterval(interval);
-    } else if (bigwin.includes(result)) {
-      alert("big win!!")
-      clearInterval(interval);
-    } else if (smallwin.includes(result)) {
-      alert("small win")
-      clearInterval(interval);
-    };
+  if (bankroll > 0) {
+    spin();
+  } else {
+    alert("deposit first please")
+  };
 
-  }, 1000);
+  //function to generate a random number, game of chance itself
+
+  function spin() {
+    var startTime = new Date().getTime();
+    var interval = setInterval(function() {
+      if (new Date().getTime() - startTime > 5000) { //if no win subtract 1 from bankroll if min small bet clicked, subtract 2 if big bet clicked, in the future implement auto-spin feature as well
+        clearInterval(interval);
+        if (bankroll != "0") {
+          bankroll -= 1
+          document.getElementById("bankroll").innerHTML = bankroll;
+        } else {
+          alert("You have to make a deposit to play again") //if bankroll falls to zero player will be encouraged to deposit again to keep playing
+        }
+        return;
+      }
+      var result = Math.floor(Math.random() * 100000); //function that generates random number
+      document.getElementById("number").innerHTML = result;
+      if (result === jackpot) { //chance to win a jackpot are 1 to 100000 still better than some pokerstars slots, good luck !:)
+        clearInterval(interval);
+        alert("jackpot");
+        bankroll += 50000
+      } else if (extraspin.includes(result)) {
+        document.getElementById("special").innerHTML = "Your extra spin! Click here!"; // button will not be displayed, once player activate the special button, regular spin will dissappear and random number function will be replaced with the special event
+        clearInterval(interval);
+      } else if (bigwin.includes(result)) {
+        document.getElementById("info").innerHTML = "BIG WIN!!!!!";
+        if (bankroll != "0") {
+          bankroll += 10
+          document.getElementById("bankroll").innerHTML = bankroll;
+        }
+        clearInterval(interval);
+      } else if (smallwin.includes(result)) {
+        document.getElementById("info").innerHTML = "WIN!!!!!";
+        if (bankroll != "0") {
+          bankroll += 2
+          document.getElementById("bankroll").innerHTML = bankroll;
+        }
+        clearInterval(interval);
+      };
+
+    }, 1000);
+  }
 }
+
 
 /*jquery function to activate spin once button is clicked*/
 
 $(document).ready(function() {
   $('#button').click(function() {
     randomnumber();
+    document.getElementById("info").innerHTML = ""; ////will add some spin animation
   });
 });
 
-/*betsize, bet size will affect winnings*/
 
-function betsize() {
-  var size = prompt("Please enter your bet");
-
-  if (size != null) {
-    document.getElementById("current_bet").innerHTML = ("Current bet" + " " + size);
-  }
-}
-
-/*jquery to activate bet function once button bet clicked*/
+/*jquery to activate deposit function once button bet clicked*/
 
 $(document).ready(function() {
-  $('#bet').click(function() {
-    betsize();
+  $('#deposit').click(function() {
+    deposit();
   });
 });
+
+//deposit function, bankroll variable will be adjusted after successful deposit, also bankroll will be adjusted while playing, either by losing or winning the game of chance.
+function deposit() {
+  var deposit = prompt("Please enter your deposit"); //for now I will use prompt to deposit in the future I might implement something like a link to paypal, after successful deposit credit will be added to the bankroll
+  deposit = parseFloat(deposit);
+  bankroll = parseFloat(bankroll);
+  bankroll = deposit + bankroll;
+  document.getElementById("bankroll").innerHTML = bankroll;
+}
