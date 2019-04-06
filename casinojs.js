@@ -45,6 +45,7 @@ function randomnumber() {
           jackpotmoney += 1;
           document.getElementById("bankroll").innerHTML = 'bankroll' + ' ' + bankroll;
           document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+          document.getElementById("number").className = 'animated heartBeat';
         } else {
           alert("You have to make a deposit to play again") //if bankroll falls to zero player will be encouraged to deposit again to keep playing
         }
@@ -52,13 +53,13 @@ function randomnumber() {
       }
       var result = Math.floor(Math.random() * 100000); //function that generates random number
       document.getElementById("number").innerHTML = result;
-      document.getElementById("number").className = 'animated bounceInDown';
+      document.getElementById("number").className = 'animated flip';
       if (result === jackpot) { //chance to win a jackpot are 1 to 100000 still better than some pokerstars slots, good luck !:)
         clearInterval(interval);
         alert("jackpot");
         bankroll += 50000;
       } else if (extraspin.includes(result)) {
-        document.getElementById("special").innerHTML = "Your extra spin! Click here!"; // button will not be displayed, once player activate the special button, regular spin will dissappear and random number function will be replaced with the special event
+        //document.getElementById("special").innerHTML = "Your extra spin! Click here!"; // button will not be displayed, once player activate the special button, regular spin will dissappear and random number function will be replaced with the special event
         document.getElementById("special").style.visibility = 'visible';
         clearInterval(interval);
       } else if (bigwin.includes(result)) {
@@ -70,6 +71,7 @@ function randomnumber() {
         clearInterval(interval);
       } else if (smallwin.includes(result)) {
         document.getElementById("info").innerHTML = "WIN!!!!!";
+        document.getElementById("Genie").className = 'win';
         if (bankroll != "0") {
           bankroll += 2;
           document.getElementById("bankroll").innerHTML = bankroll;
@@ -88,6 +90,8 @@ function randomnumber() {
 $(document).ready(function() {
   $('#button').click(function() {
     $(this).attr("disabled", "disabled");
+    document.getElementById("info").innerHTML = "Jackpot activated during any spin!";
+    document.getElementById("Genie").className = 'spin';
     randomnumber();
   });
 });
@@ -115,12 +119,14 @@ function randomrange() {
 function specialevent() {
   var startTime = new Date().getTime();
   var interval = setInterval(function() {
-    if (new Date().getTime() - startTime > 15000) { 
+    if (new Date().getTime() - startTime > 15000) { //if no win subtract 1 from bankroll if min small bet clicked, subtract 2 if big bet clicked, in the future implement auto-spin feature as well
       clearInterval(interval);
+      document.getElementById("number").className = 'animated jackInTheBox';
       return;
     }
     var result = Math.floor(Math.random() * 100000); //function that generates random number
     document.getElementById("number").innerHTML = result;
+    document.getElementById("number").className = 'animated rotateIn';
     var multiplier = randomrange();
     if (specialwin.includes(result)) {
       bankroll += 5 * multiplier;
