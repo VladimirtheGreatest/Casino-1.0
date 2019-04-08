@@ -29,8 +29,10 @@ function randomnumber() {
 
   if (bankroll > 0) {
     spin();
+    document.getElementById("info").innerHTML = "Jackpot activated during any spin!";
   } else {
     alert("deposit first please")
+    document.getElementById("svg").style.visibility = 'hidden';
   };
 
   //function to generate a random number, game of chance itself
@@ -43,9 +45,10 @@ function randomnumber() {
         if (bankroll != "0") {
           bankroll -= 1;
           jackpotmoney += 1;
-          document.getElementById("bankroll").innerHTML = 'bankroll' + ' ' + bankroll;
+          document.getElementById("bankroll").innerHTML = "£" + bankroll;
           document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
-          document.getElementById("number").className = 'animated heartBeat';
+          document.getElementById("number").className = 'animated pulse';
+          document.getElementById("svg").style.visibility = 'hidden';
         } else {
           alert("You have to make a deposit to play again") //if bankroll falls to zero player will be encouraged to deposit again to keep playing
         }
@@ -53,35 +56,39 @@ function randomnumber() {
       }
       var result = Math.floor(Math.random() * 100000); //function that generates random number
       document.getElementById("number").innerHTML = result;
-      document.getElementById("number").className = 'animated flip';
+      document.getElementById("number").className = 'animated rotateIn';
       if (result === jackpot) { //chance to win a jackpot are 1 to 100000 still better than some pokerstars slots, good luck !:)
         clearInterval(interval);
         alert("jackpot");
         bankroll += 50000;
       } else if (extraspin.includes(result)) {
-        //document.getElementById("special").innerHTML = "Your extra spin! Click here!"; // button will not be displayed, once player activate the special button, regular spin will dissappear and random number function will be replaced with the special event
+        // button will not be displayed, once player activate the special button, random number function will be replaced with the special event
         document.getElementById("special").style.visibility = 'visible';
         clearInterval(interval);
       } else if (bigwin.includes(result)) {
         document.getElementById("info").innerHTML = "BIG WIN!!!!!";
+        document.getElementById("Genie").className = 'win';
+        document.getElementById("info").className = 'infowin';
         if (bankroll != "0") {
           bankroll += 10;
-          document.getElementById("bankroll").innerHTML = bankroll;
+          document.getElementById("bankroll").innerHTML = "£" + bankroll;
         }
         clearInterval(interval);
       } else if (smallwin.includes(result)) {
         document.getElementById("info").innerHTML = "WIN!!!!!";
         document.getElementById("Genie").className = 'win';
+        document.getElementById("info").className = 'infowin';
         if (bankroll != "0") {
           bankroll += 2;
-          document.getElementById("bankroll").innerHTML = bankroll;
+          document.getElementById("bankroll").innerHTML = "£" + bankroll;
         }
         clearInterval(interval);
       };
 
     }, 1000);
   }
-  setTimeout('$("#button").removeAttr("disabled")', 5000);
+  setTimeout('$("#button").removeAttr("disabled")', 5000); //timeout will remove disable attribute
+  setTimeout('$("#deposit").removeAttr("disabled")', 5000);
 }
 
 
@@ -89,9 +96,12 @@ function randomnumber() {
 
 $(document).ready(function() {
   $('#button').click(function() {
-    $(this).attr("disabled", "disabled");
-    document.getElementById("info").innerHTML = "Jackpot activated during any spin!";
+    $(this).attr("disabled", "disabled"); //both buttons will be disabled while spin is activated, this will prevent the player from double clicking or interrupting the spinning function with the deposit
+    $('#deposit').attr("disabled", "disabled");
+    $("#info").removeClass("infowin");
+    $("#number").removeClass("infowin");
     document.getElementById("Genie").className = 'spin';
+    document.getElementById("svg").style.visibility = 'visible';
     randomnumber();
   });
 });
@@ -121,7 +131,7 @@ function specialevent() {
   var interval = setInterval(function() {
     if (new Date().getTime() - startTime > 15000) { //if no win subtract 1 from bankroll if min small bet clicked, subtract 2 if big bet clicked, in the future implement auto-spin feature as well
       clearInterval(interval);
-      document.getElementById("number").className = 'animated jackInTheBox';
+      document.getElementById("number").className = 'animated pulse';
       return;
     }
     var result = Math.floor(Math.random() * 100000); //function that generates random number
@@ -129,9 +139,14 @@ function specialevent() {
     document.getElementById("number").className = 'animated rotateIn';
     var multiplier = randomrange();
     if (specialwin.includes(result)) {
-      bankroll += 5 * multiplier;
-      document.getElementById("info").innerHTML = "BIG WIN";
-      document.getElementById("bankroll").innerHTML = bankroll;
+      var number = 5 * multiplier;
+      bankroll += number;
+      document.getElementById("info").innerHTML = "BIG WIN !!!!!";
+      document.getElementById("info").className = 'infowin';
+      document.getElementById("bankroll").innerHTML = "£" + bankroll;
+      document.getElementById("number").className = 'infowin';
+      document.getElementById("Genie").className = 'win';
+      document.getElementById("number").innerHTML = animateResultCount(1, number, "#number");
       clearInterval(interval);
     };
 
@@ -151,27 +166,44 @@ $(document).ready(function() {
 
 //deposit function, bankroll variable will be adjusted after successful deposit, also bankroll will be adjusted while playing, either by losing or winning the game of chance.
 function deposit() {
-  var deposit = prompt("Please enter your deposit"); //for now I will use prompt to deposit in the future I might implement something like a link to paypal, after successful deposit credit will be added to the bankroll
+  do {
+    var deposit = parseFloat(window.prompt("Please enter your deposit, maximum deposit is £100, minimum deposit £1, if you dont want to deposit please refresh this page"), 10);
+  } while (isNaN(deposit) || deposit > 100 || deposit < 1); //for now I will use prompt to deposit in the future I might implement something like a link to paypal, after successful deposit credit will be added to the bankroll
   deposit = parseFloat(deposit);
   bankroll = parseFloat(bankroll);
   bankroll = deposit + bankroll;
-  document.getElementById("bankroll").innerHTML = bankroll;
+  document.getElementById("bankroll").innerHTML = "£" + bankroll;
 }
 
 
 // animate css function
 
 function animateCSS(element, animationName, callback) {
-    const node = document.querySelector(element)
-    node.classList.add('animated', animationName)
+  const node = document.querySelector(element)
+  node.classList.add('animated', animationName)
 
-    function handleAnimationEnd() {
-        node.classList.remove('animated', animationName)
-        node.removeEventListener('animationend', handleAnimationEnd)
+  function handleAnimationEnd() {
+    node.classList.remove('animated', animationName)
+    node.removeEventListener('animationend', handleAnimationEnd)
 
-        if (typeof callback === 'function') callback()
-    }
+    if (typeof callback === 'function') callback()
+  }
 
-    node.addEventListener('animationend', handleAnimationEnd)
+  node.addEventListener('animationend', handleAnimationEnd)
 }
 
+
+//increasing number animation used during "free spins" special event
+
+function animateResultCount(number, target, elem) {
+  if (number < target) {
+    var interval = setInterval(function() {
+      $("#number").text(number);
+      if (number >= target) {
+        clearInterval(interval);
+        return;
+      }
+      number++;
+    }, 100);
+  }
+}
