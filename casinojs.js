@@ -1,3 +1,30 @@
+//Global
+var bankroll = "0"; //initial bankroll
+
+var jackpotmoney = 50000; //this will be initial jackpot incrementing with each and every single spin(progressive), after hitting a jackpot it will reset itself to 50000. You can win the jackpot by playing any game
+
+/*jquery to activate deposit function once button bet clicked*/
+
+$(document).ready(function() {
+  $('#deposit').click(function() {
+    deposit();
+  });
+});
+
+//deposit function, bankroll variable will be adjusted after successful deposit, also bankroll will be adjusted while playing, either by losing or winning the game of chance.
+function deposit() {
+  do {
+    var deposit = parseFloat(window.prompt("Please enter your deposit, maximum deposit is £100, minimum deposit £1, if you dont want to deposit please refresh this page"), 10);
+  } while (isNaN(deposit) || deposit > 100 || deposit < 1); //for now I will use prompt to deposit in the future I might implement something like a link to paypal, after successful deposit credit will be added to the bankroll
+  deposit = parseFloat(deposit);
+  bankroll = parseFloat(bankroll);
+  bankroll = deposit + bankroll;
+  document.getElementById("bankroll").innerHTML = "£" + bankroll;
+}
+
+
+//Magical numbers game
+
 /* function to generate an array,   Random generated number  found in this array, will trigger small or big win or special event with "free spins" */
 
 function range(start, end) {
@@ -5,6 +32,7 @@ function range(start, end) {
 }
 
 
+//VARIABLES winning ranges
 /*jackpot, if this variable is generated, you hit the jackpot*/
 var jackpot = range(99000, 100000); // 50000 bet multiplier  (jackpot icon visible in the corner, with each spin increase bet multiplier function)
 
@@ -16,13 +44,8 @@ var extraspin = range(40000, 50000); // extra 20 spins, this will be a special f
 
 var specialwin = range(50000, 60000); // free spins range which will trigger special win during special event "free spins"
 
-var bankroll = "0"; //initial bankroll
 
-var jackpotmoney = 50000; //this will be initial jacpot incrementing with each and every single spin, after hitting a jackpot it will reset itself to 50000.
-
-
-
-/*this function will find out if player have enough money to play, if not, player will be encouraged to deposit before he can wager*/
+/*this function will find out if player have enough money to play magical numbers, if not, player will be encouraged to deposit before he can wager*/
 
 function randomnumber() {
 
@@ -31,7 +54,7 @@ function randomnumber() {
     spin();
     document.getElementById("info").innerHTML = "Jackpot activated during any spin!";
   } else {
-    alert("deposit first please")
+    alert(" minimum bet for this game is £1, deposit first please")
     document.getElementById("svg").style.visibility = 'hidden';
   };
 
@@ -158,45 +181,6 @@ function specialevent() {
   setTimeout('$("#special").removeAttr("disabled")', 15000);
 };
 
-
-
-/*jquery to activate deposit function once button bet clicked*/
-
-$(document).ready(function() {
-  $('#deposit').click(function() {
-    deposit();
-  });
-});
-
-//deposit function, bankroll variable will be adjusted after successful deposit, also bankroll will be adjusted while playing, either by losing or winning the game of chance.
-function deposit() {
-  do {
-    var deposit = parseFloat(window.prompt("Please enter your deposit, maximum deposit is £100, minimum deposit £1, if you dont want to deposit please refresh this page"), 10);
-  } while (isNaN(deposit) || deposit > 100 || deposit < 1); //for now I will use prompt to deposit in the future I might implement something like a link to paypal, after successful deposit credit will be added to the bankroll
-  deposit = parseFloat(deposit);
-  bankroll = parseFloat(bankroll);
-  bankroll = deposit + bankroll;
-  document.getElementById("bankroll").innerHTML = "£" + bankroll;
-}
-
-
-// animate css function
-
-function animateCSS(element, animationName, callback) {
-  const node = document.querySelector(element)
-  node.classList.add('animated', animationName)
-
-  function handleAnimationEnd() {
-    node.classList.remove('animated', animationName)
-    node.removeEventListener('animationend', handleAnimationEnd)
-
-    if (typeof callback === 'function') callback()
-  }
-
-  node.addEventListener('animationend', handleAnimationEnd)
-}
-
-
 //increasing number animation used during "free spins" special event
 
 function animateResultCount(number, target, elem) {
@@ -211,4 +195,184 @@ function animateResultCount(number, target, elem) {
     }, 100);
   }
 }
+
+//STARS OF FORTUNE
+
+var carousel = document.querySelector('.carousel');
+var cells = carousel.querySelectorAll('.carousel__cell');
+var cellCount; // cellCount set from cells-range input value
+var selectedIndex = 0;
+var cellWidth = carousel.offsetWidth;
+var cellHeight = carousel.offsetHeight;
+var isHorizontal = true;
+var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
+var radius, theta;
+// console.log( cellWidth, cellHeight );
+
+function rotateCarousel() {
+  var angle = theta * selectedIndex * -1;
+  carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
+    rotateFn + '(' + angle + 'deg)';
+}
+
+var nextButton = document.querySelector('.next-button');
+nextButton.addEventListener( 'click', function() {
+$('#playbutton').attr("disabled", "disabled");
+$('#deposit').attr("disabled", "disabled");
+
+    if (bankroll < 5) {
+      alert(" minimum bet for this game is £5, deposit first please")
+    } else {
+
+  var startTime = new Date().getTime();
+  var interval = setInterval(function() {
+    if (new Date().getTime() - startTime > 8000) {
+      clearInterval(interval);
+      selectedIndex = Math.floor(Math.random() * 14) + 1;
+      rotateCarousel();
+      if (selectedIndex === 0) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 1) {
+        bankroll += 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 2) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 3) {
+        bankroll += 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 4) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 5) {
+        bankroll += 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 6) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 7) {
+        bankroll += 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 8) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 9) {
+        bankroll += 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 10) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 11) {
+        bankroll += 15;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 12) {
+        bankroll -= 3;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 13) {
+        bankroll += 495;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      } else if (selectedIndex === 14) {
+        bankroll += 15;
+        jackpotmoney += 5;
+        document.getElementById("bankroll").innerHTML = "£" + bankroll;
+        document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+      }
+      return;
+    }
+    selectedIndex = Math.floor(Math.random() * 100000) + 1;
+    rotateCarousel();
+    if (jackpot.includes(selectedIndex)) {
+      bankroll += jackpotmoney;
+      jackpotmoney = 50000;  //resetting jackpot after hitting the one
+      document.getElementById("bankroll").innerHTML = "£" + bankroll;
+      document.getElementById("jackpot").innerHTML = "Please contact support";
+      clearInterval(interval);
+    }
+  }, 1000);
+  };
+  setTimeout('$("#playbutton").removeAttr("disabled")', 9000);
+  setTimeout('$("#deposit").removeAttr("disabled")', 9000);
+});
+
+
+var cellsRange = document.querySelector('.cells-range');
+cellsRange.addEventListener( 'change', changeCarousel );
+cellsRange.addEventListener( 'input', changeCarousel );
+
+
+
+function changeCarousel() {
+  cellCount = cellsRange.value;
+  theta = 360 / cellCount;
+  var cellSize = isHorizontal ? cellWidth : cellHeight;
+  radius = Math.round( ( cellSize / 2) / Math.tan( Math.PI / cellCount ) );
+  for ( var i=0; i < cells.length; i++ ) {
+    var cell = cells[i];
+    if ( i < cellCount ) {
+      // visible cell
+      cell.style.opacity = 1;
+      var cellAngle = theta * i;
+      cell.style.transform = rotateFn + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+    } else {
+      // hidden cell
+      cell.style.opacity = 0;
+      cell.style.transform = 'none';
+    }
+  }
+
+  rotateCarousel();
+}
+
+var orientationRadios = document.querySelectorAll('input[name="orientation"]');
+( function() {
+  for ( var i=0; i < orientationRadios.length; i++ ) {
+    var radio = orientationRadios[i];
+    radio.addEventListener( 'change', onOrientationChange );
+  }
+})();
+
+function onOrientationChange() {
+  var checkedRadio = document.querySelector('input[name="orientation"]:checked');
+  isHorizontal = checkedRadio.value == 'horizontal';
+  rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
+  changeCarousel();
+}
+
+// set initials
+onOrientationChange();
+
+
+  if (bankroll > 0) {
+    play();
+  } else {
+    alert("deposit first please")
+  };
 
