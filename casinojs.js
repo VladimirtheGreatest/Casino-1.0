@@ -1,7 +1,25 @@
 //Global
+
 var bankroll = "0"; //initial bankroll
 
 var jackpotmoney = 50000; //this will be initial jackpot incrementing with each and every single spin(progressive), after hitting a jackpot it will reset itself to 50000. You can win the jackpot by playing any game
+
+//music
+
+function playmusic(){
+       var audio = document.getElementById("audio");
+       audio.play();
+};
+
+function playmusic2(){
+       var audio = document.getElementById("audio2");
+       audio.play();
+};
+
+function playmusic3(){
+       var audio = document.getElementById("audio3");
+       audio.play();
+                 }
 
 /*jquery to activate deposit function once button bet clicked*/
 
@@ -12,6 +30,7 @@ $(document).ready(function() {
 });
 
 //deposit function, bankroll variable will be adjusted after successful deposit, also bankroll will be adjusted while playing, either by losing or winning the game of chance.
+
 function deposit() {
   do {
     var deposit = parseFloat(window.prompt("Please enter your deposit, maximum deposit is £100, minimum deposit £1, if you dont want to deposit please refresh this page"), 10);
@@ -34,9 +53,9 @@ function range(start, end) {
 
 //VARIABLES winning ranges
 /*jackpot, if this variable is generated, you hit the jackpot*/
-var jackpot = range(99000, 100000); // 50000 bet multiplier  (jackpot icon visible in the corner, with each spin increase bet multiplier function)
+var jackpot = range(0, 1); // 50000 bet multiplier  (jackpot icon visible in the corner, with each spin increase bet multiplier function)
 
-var smallwin = range(1, 4000); // 1.5 bet multiplier  4% chance to win a spin  (1 clients bet will use 4 spins)
+var smallwin = range(101, 4001); // 1.5 bet multiplier  4% chance to win a spin  (1 clients bet will use 4 spins)
 
 var bigwin = range(28000, 30000); // 10 bet multiplier  2% chance to win
 
@@ -183,7 +202,7 @@ function specialevent() {
 
 //increasing number animation used during "free spins" special event
 
-function animateResultCount(number, target, elem) {
+function animateResultCount(number, target) {
   if (number < target) {
     var interval = setInterval(function() {
       $("#number").text(number);
@@ -209,16 +228,29 @@ var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
 var radius, theta;
 // console.log( cellWidth, cellHeight );
 
+/*function that rotates rewards*/
+
 function rotateCarousel() {
   var angle = theta * selectedIndex * -1;
   carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
     rotateFn + '(' + angle + 'deg)';
 }
 
+/*click event PLAY button*/
+
 var nextButton = document.querySelector('.next-button');
 nextButton.addEventListener( 'click', function() {
 $('#playbutton').attr("disabled", "disabled");
 $('#deposit').attr("disabled", "disabled");
+$("#scene").removeClass("carouselwin");
+document.getElementById("scene").className = 'spincarousel';
+document.getElementById("info1").innerHTML = "Jackpot activated during any spin!";
+document.getElementById("jackpotstars").innerHTML = "";
+$('audio').each(function(){
+  this.pause(); // Stop playing music
+  this.currentTime = 0; // Reset time
+});
+playmusic();
 
     if (bankroll < 5) {
       alert(" minimum bet for this game is £5, deposit first please")
@@ -235,85 +267,124 @@ $('#deposit').attr("disabled", "disabled");
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 1) {
-        bankroll += 3;
+        bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 2) {
         bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 3) {
-        bankroll += 3;
+        bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 4) {
         bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 5) {
         bankroll += 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'carouselwin';
+        document.getElementById("info1").innerHTML = "Good job young padawan!! Big win !!";
+        audio.pause();
+        playmusic3();
       } else if (selectedIndex === 6) {
         bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 7) {
         bankroll += 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'carouselwin';
+        document.getElementById("info1").innerHTML = "Lasers did not stop you! Big win !!";
+        audio.pause();
+        playmusic3();
       } else if (selectedIndex === 8) {
         bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 9) {
         bankroll += 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'carouselwin';
+        document.getElementById("info1").innerHTML = "Force is with you!! £8 in your pocket!!";
+        audio.pause();
+        playmusic3();
       } else if (selectedIndex === 10) {
         bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 11) {
         bankroll += 15;
+        jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'carouselwin';
+        document.getElementById("info1").innerHTML = "Good job captain, your ship is faster than the speed of light!!";
+        audio.pause();
+        playmusic3();
       } else if (selectedIndex === 12) {
         bankroll -= 3;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'scene';
       } else if (selectedIndex === 13) {
         bankroll += 495;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'carouselwin';
+        document.getElementById("info1").innerHTML = "HUGE PAYOUT!! YOU DESTROYED THE ENTIRE FLEET";
+        audio.pause();
+        playmusic3();
       } else if (selectedIndex === 14) {
         bankroll += 15;
         jackpotmoney += 5;
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = ' Current jackpot is' + ' ' + jackpotmoney;
+        document.getElementById("scene").className = 'carouselwin';
+        document.getElementById("info1").innerHTML = "Amazing, your ship is faster than the speed of light!!";
+        audio.pause();
+        playmusic3();
       }
       return;
+      document.getElementById("scene").className = 'scene';
     }
-    selectedIndex = Math.floor(Math.random() * 100000) + 1;
+    selectedIndex = Math.floor(Math.random() * 100);
     rotateCarousel();
     if (jackpot.includes(selectedIndex)) {
       bankroll += jackpotmoney;
       jackpotmoney = 50000;  //resetting jackpot after hitting the one
       document.getElementById("bankroll").innerHTML = "£" + bankroll;
       document.getElementById("jackpot").innerHTML = "Please contact support";
+      document.getElementById("info1").innerHTML = "CONGRATULATION, PROGRESSIVE JACKPOT IS YOURS!!!!!";
+      document.getElementById("jackpotstars").innerHTML = animateResultCount2(45000, jackpotmoney);
+      audio.pause();
+      playmusic2();
       clearInterval(interval);
     }
   }, 1000);
@@ -369,10 +440,19 @@ function onOrientationChange() {
 // set initials
 onOrientationChange();
 
+//increasing number animation used during "jackpot" special event in the game stars of fortune
 
-  if (bankroll > 0) {
-    play();
-  } else {
-    alert("deposit first please")
-  };
+function animateResultCount2(number, target) {
+  if (number < target) {
+    var interval = setInterval(function() {
+      $("#jackpotstars").text(number);
+      if (number >= target) {
+        clearInterval(interval);
+        return;
+      }
+      number++
+    }, 1);
+  }
+}
+
 
