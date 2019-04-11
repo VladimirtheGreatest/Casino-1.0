@@ -62,7 +62,7 @@ html, h1, h2, h3, h4, h5, h6, a {
 #Genie {
   background-color: #15242d;
   width: 100%;
-  height: 130vh;
+  height: 100vh;
   font-family: arial, sans-serif;
   font-size: 15px;
   text-align: center;
@@ -206,7 +206,7 @@ html, h1, h2, h3, h4, h5, h6, a {
   margin: 20px;
 }
 
-/*Responsivness*/
+/*Responsivenes*/
 
 @media only screen and (max-width: 600px) {
   #buttonmain {
@@ -227,7 +227,7 @@ html, h1, h2, h3, h4, h5, h6, a {
   }
 
 
-/*jackpot animation css*/
+/*jackpot animation css for the game magical numbers*/
 
 .wrapper {
   overflow: hidden;
@@ -258,22 +258,21 @@ html, h1, h2, h3, h4, h5, h6, a {
 
 #carousel{
   background-image: url(../img/BG1.jpg);
-  background-position: 0 -250px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 90vh;
-  padding-top: 50px;
+  height: 100vh;
+  padding-top: 130px;
 }
 
 .scene {
-/*  border: 1px solid #CCC; */
   margin: 40px 0;
   position: relative;
   width: 210px;
   height: 140px;
   margin: 80px auto;
-  perspective: 200px;
+  perspective: 100px;
 }
 
 .carousel {
@@ -282,7 +281,7 @@ html, h1, h2, h3, h4, h5, h6, a {
   position: absolute;
   transform: translateZ(-288px);
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 13s;
 }
 
 .carousel__cell {
@@ -292,12 +291,13 @@ html, h1, h2, h3, h4, h5, h6, a {
   left: 10px;
   top: 10px;
   border: 2px solid black;
+  border-radius: 50%;
   line-height: 116px;
   font-size: 80px;
   font-weight: bold;
   color: white;
   text-align: center;
-  transition: transform 1s, opacity 1s;
+  transition: transform 5s, opacity 1s;
 }
 
 .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
@@ -327,12 +327,63 @@ html, h1, h2, h3, h4, h5, h6, a {
   color: #fff;
 }
 
+/*these features are hidden since I dont need them now, I might need them in the future, but i cant delete them because it would effect functionality*/
+
 .orientation{
   visibility: hidden;
 }
 
 .cells{
   visibility: hidden;
+}
+
+/*carousel win animation "laser effect from the ship coming to the player"*/
+
+.carouselwin{
+  margin: 40px 0;
+  position: relative;
+  width: 210px;
+  height: 140px;
+  margin: 80px auto;
+  perspective: 1px;
+}
+
+/*replacing scene class while spinning*/
+
+.spincarousel{
+  margin: 40px 0;
+  position: relative;
+  width: 210px;
+  height: 140px;
+  margin: 80px auto;
+  perspective: 1000px;
+}
+
+/*info area for the game stars of the fortune*/
+
+#info1{
+  color: #bb0a1e;
+  text-shadow: 2px 2px #fff;
+  -webkit-animation: flash linear 10s infinite;
+  animation: flash linear 10s infinite;
+  font-weight: bold;
+}
+
+/*jackpot area for the stars of the fortune*/
+
+#jackpotstars{
+  font-size: 100px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px black;
+  -webkit-animation: flash linear 1s infinite;
+  animation: flash linear 1s infinite;
+}
+
+/*about text area */
+
+#about{
+
 }
 
 
