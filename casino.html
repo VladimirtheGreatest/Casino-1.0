@@ -42,10 +42,10 @@
     <button id=buttonmain type="button" class="btn btn-warning">Play now</button>
   </header>
 
-  <!--  About this project-->
-  <!--<div class="container text-center" id=about>
 
-  </div>-->
+  <div class="container text-center About" id=about>
+
+  </div>
 
   <!--  Magical numbers game-->
   <div class="wrapper">
@@ -76,12 +76,16 @@
 
     <div class="Carousel container-fluid" id=carousel>
       <div class="container">
-        <div class="scene">
+        <div class="starswin col-12 text-center">
+          <h1 id=info1>Stars are waiting for you. May the odds be in your favor.</h1>
+          <h1 id=jackpotstars></h1>
+        </div>
+        <div class="scene col-12" id=scene>
           <div class="carousel">
             <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£8</div>
             <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£8</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£2</div>
             <div class="carousel__cell">£2</div>
             <div class="carousel__cell">£8</div>
             <div class="carousel__cell">£2</div>
@@ -95,7 +99,7 @@
             <div class="carousel__cell">£20</div>
           </div>
         </div>
-        <div class="carousel-options">
+        <div class="carousel-options col-12 text-center">
           <div class="cells">
     <p>
       <label>
@@ -105,9 +109,9 @@
     </p>
   </div>
     <p>
-      <button class="next-button btn btn-primary btn-lg" id=playbutton>Play</button>
+      <button class="next-button btn btn-primary btn-lg text-center" id=playbutton>Play</button>
     </p>
-    <div class="orientation">
+    <div class="orientation col-12 text-center">
     <p>
       Orientation:
       <label>
@@ -125,6 +129,10 @@
     </div>
 
 
+  <audio id="audio" src="mp3/starwars.mp3" ></audio>
+  <audio id="audio2" src="mp3/duel.mp3" ></audio>
+  <audio id="audio3" src="mp3/gucci.mp3" ></audio>
+
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -135,6 +143,7 @@
 </body>
 
 </html>
+
 
 
 
