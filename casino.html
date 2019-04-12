@@ -23,12 +23,12 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav mr-4">
         <li class="nav-item">
-          <a class="nav-link" data-value="About" href="#">About</a> </li>
+          <a class="nav-link" data-value="About" href="#About">About</a> </li>
         <li class="nav-item">
-          <a class="nav-link " data-value="Genie jackpot" href="#">Magical numbers</a>
+          <a class="nav-link " data-value="Genie" href="#Genie">Magical numbers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " data-value="Carousel" href="#">Stars of fortune</a> </li>
+          <a class="nav-link " data-value="Carousel" href="#carousel">Stars of fortune</a> </li>
         <li class="nav-item">
           <a class="nav-link " data-value="Roulette" href="#">Crazy cool jackpot</a> </li>
 
@@ -37,15 +37,73 @@
   </nav>
 
   <!-- header background img -->
-  <header>
-    <img class="img-fluid" src="img/casino1.jpg">
-    <button id=buttonmain type="button" class="btn btn-warning">Play now</button>
+  <header id=header>
+    <!--<img class="img-fluid" src="img/casino1.jpg">-->
+    <button id=buttonmain onclick="location.href='#carousel'" type="button" class="btn btn-warning">Play now</button>
   </header>
 
 
-  <div class="container text-center About" id=about>
-
+  <div class="container-fluid  About" id=About>
+    <h2 class="text-center col-12">Welcome to my casino! Good luck and have fun!!</h2>
+    <p class="col-12">This Casino project is made by Vladimir Doktorov in 2019. This project should demonstrate my ability to use following languages, HTML, CSS, Javascript + frameworks Bootstrap and Jquery. It should also demonstrate my ability to make fully responsive layouts and change the functionality of DOM elements with Javascript. Casino 1.0 will enable gamblers to play and wager on casino games through the Internet. This project should simulate real online casino and possible client/business solution. All web design, names, games and their logic were written by me except the 3D design model of "carousel" I used and modified code mentioned on my Github page (please check README.md file). You cannot play or deposit real money here. This website is only part of my developer portfolio and it is only for personal use not commercial.</p>
   </div>
+
+  <!-- Stars of fortune game -->
+
+
+    <div class="Carousel container-fluid" id=carousel>
+      <div class="container">
+        <div class="starswin col-12 col-6-medium col-12-small text-center">
+          <h1 id=info1>Stars are waiting for you. May the odds be in your favor.</h1>
+          <h1 id=jackpotstars></h1>
+        </div>
+        <div class="scene col-12 col-6-medium col-12-small" id=scene>
+          <div class="carousel">
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£8</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£8</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£8</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£20</div>
+            <div class="carousel__cell">£2</div>
+            <div class="carousel__cell">£500</div>
+            <div class="carousel__cell">£20</div>
+          </div>
+        </div>
+        <div class="carousel-options col-12 col-6-medium col-12-small text-center">
+          <div class="cells">
+    <p>
+      <label>
+        Cells
+        <input class="cells-range" type="range" min="3" max="15" value="15" />
+      </label>
+    </p>
+  </div>
+    <p>
+      <button class="next-button btn btn-primary btn-lg text-center" id=playbutton>Play</button>
+    </p>
+    <div class="orientation col-12 col-6-medium col-12-small text-center">
+    <p>
+      Orientation:
+      <label>
+        <input type="radio" name="orientation" value="horizontal" checked />
+        horizontal
+      </label>
+      <label>
+        <input type="radio" name="orientation" value="vertical" />
+        vertical
+      </label>
+    </p>
+    </div>
+  </div>
+      </div>
+    </div>
 
   <!--  Magical numbers game-->
   <div class="wrapper">
@@ -71,62 +129,6 @@
     </div>
   </div>
 
-  <!-- Stars of fortune game -->
-
-
-    <div class="Carousel container-fluid" id=carousel>
-      <div class="container">
-        <div class="starswin col-12 text-center">
-          <h1 id=info1>Stars are waiting for you. May the odds be in your favor.</h1>
-          <h1 id=jackpotstars></h1>
-        </div>
-        <div class="scene col-12" id=scene>
-          <div class="carousel">
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£8</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£8</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£8</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£20</div>
-            <div class="carousel__cell">£2</div>
-            <div class="carousel__cell">£500</div>
-            <div class="carousel__cell">£20</div>
-          </div>
-        </div>
-        <div class="carousel-options col-12 text-center">
-          <div class="cells">
-    <p>
-      <label>
-        Cells
-        <input class="cells-range" type="range" min="3" max="15" value="15" />
-      </label>
-    </p>
-  </div>
-    <p>
-      <button class="next-button btn btn-primary btn-lg text-center" id=playbutton>Play</button>
-    </p>
-    <div class="orientation col-12 text-center">
-    <p>
-      Orientation:
-      <label>
-        <input type="radio" name="orientation" value="horizontal" checked />
-        horizontal
-      </label>
-      <label>
-        <input type="radio" name="orientation" value="vertical" />
-        vertical
-      </label>
-    </p>
-    </div>
-  </div>
-      </div>
-    </div>
 
 
   <audio id="audio" src="mp3/starwars.mp3" ></audio>
@@ -143,6 +145,7 @@
 </body>
 
 </html>
+
 
 
 
