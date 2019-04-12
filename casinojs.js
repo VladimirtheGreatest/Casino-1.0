@@ -105,6 +105,8 @@ function randomnumber() {
         jackpotmoney = 50000;  //resetting jackpot after hitting the one
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = "Please contact support";
+        audio.pause();
+        playmusic2();
         clearInterval(interval);
       } else if (extraspin.includes(result)) {
         // button will not be displayed, once player activate the special button, random number function will be replaced with the special event
@@ -114,6 +116,8 @@ function randomnumber() {
         document.getElementById("info").innerHTML = "BIG WIN!!!!!";
         document.getElementById("Genie").className = 'win';
         document.getElementById("info").className = 'infowin';
+        audio.pause();
+        playmusic3();
         if (bankroll != "0") {
           bankroll += 10;
           document.getElementById("bankroll").innerHTML = "£" + bankroll;
@@ -123,6 +127,8 @@ function randomnumber() {
         document.getElementById("info").innerHTML = "WIN!!!!!";
         document.getElementById("Genie").className = 'win';
         document.getElementById("info").className = 'infowin';
+        audio.pause();
+        playmusic3();
         if (bankroll != "0") {
           bankroll += 2;
           document.getElementById("bankroll").innerHTML = "£" + bankroll;
@@ -147,6 +153,10 @@ $(document).ready(function() {
     $("#number").removeClass("infowin");
     document.getElementById("Genie").className = 'spin';
     document.getElementById("svg").style.visibility = 'visible';
+    $('audio').each(function(){
+      this.pause(); // Stop playing music
+      this.currentTime = 0; // Reset time
+    });
     randomnumber();
   });
 });
@@ -192,6 +202,8 @@ function specialevent() {
       document.getElementById("bankroll").innerHTML = "£" + bankroll;
       document.getElementById("number").className = 'infowin';
       document.getElementById("Genie").className = 'win';
+      audio.pause();
+      playmusic2();
       document.getElementById("number").innerHTML = animateResultCount(1, number);
       clearInterval(interval);
     };
@@ -454,5 +466,6 @@ function animateResultCount2(number, target) {
     }, 1);
   }
 }
+
 
 
