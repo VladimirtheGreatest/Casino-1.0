@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Crazy cool jackpot</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/crazystyle.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top ">
+    <button id=deposit type="button" class="btn btn-primary btn-lg navbar-brand" name="button">Deposit</button>
+    <h2 id=bankroll class="nav-brand">£ 0</h2>
+    <h2 class="flash nav-brand" id=jackpot> Current jackpot: £50000</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-4">
+        <li class="nav-item">
+          <a class="nav-link" data-value="About" href="casino.html">About</a> </li>
+        <li class="nav-item">
+          <a class="nav-link " data-value="Genie" href="casino.html#Genie">Magical numbers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " data-value="Carousel" href="casino.html#carousel">Stars of fortune</a> </li>
+        <li class="nav-item">
+          <a class="nav-link " data-value="Crazy" href="#">Crazy cool jackpot</a> </li>
+
+      </ul>
+    </div>
+  </nav>
+
+<div class="container" id=crazy>
+  <h2 class="text-center" id=info>Crazy cool jackpot is waiting for you!</h2>
+  <div class="row">
+  <div class="scene col-4">
+  <div class="carousel">
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div>
+  </div>
+</div>
+<div class="scene col-4">
+<div class="carousel2">
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+  <div class="carousel__cell2"></div>
+</div>
+</div>
+<div class="scene col-4">
+<div class="carousel3">
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+  <div class="carousel__cell3"></div>
+</div>
+</div>
+</div>
+<div class="carousel-options">
+  <p id=invisible>
+    <label>
+      Cells
+      <input class="cells-range" type="range" min="3" max="15" value="10" />
+    </label>
+  </p>
+  <p id=invisible>
+    <button class="previous-button btn-lg">Previous</button>
+    <button class="next-button btn-lg">Next</button>
+  </p>
+  <p id=invisible>
+    Orientation:
+    <label>
+      <input type="radio" name="orientation" value="horizontal" />
+      horizontal
+    </label>
+    <label>
+      <input type="radio" name="orientation" value="vertical" checked />
+      vertical
+    </label>
+  </p>
+</div>
+<div class="carousel-options">
+  <p id=invisible>
+    <label>
+      Cells
+      <input class="cells-range2" type="range" min="3" max="15" value="10" />
+    </label>
+  </p>
+  <p>
+    <button class="next-button2 btn btn-lg btn-success" id=playbutton>Play</button>
+  </p>
+  <p id=invisible>
+    Orientation:
+    <label>
+      <input type="radio" name="orientation" value="horizontal" />
+      horizontal
+    </label>
+    <label>
+      <input type="radio" name="orientation" value="vertical" checked />
+      vertical
+    </label>
+  </p>
+</div>
+</div>
+
+
+    <audio id="audio" src="mp3/jazz.mp3" ></audio>
+    <audio id="audio2" src="mp3/duel.mp3" ></audio>
+    <audio id="audio3" src="mp3/coin.mp3" ></audio>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="./js/crazy.js"></script>
+
+  </body>
+
+  </html>
