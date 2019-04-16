@@ -38,11 +38,10 @@
   </nav>
 
 <div class="container" id=crazy>
-  <h2 class="text-center" id=info>Crazy cool jackpot is waiting for you!</h2>
   <div class="row">
-  <div class="scene col-4">
+  <div class="scene">
   <div class="carousel">
-    <div class="carousel__cell"></div>
+    <div class="carousel__cell"></div> <!--add col 4 or add another class before scene-->
     <div class="carousel__cell"></div>
     <div class="carousel__cell"></div>
     <div class="carousel__cell"></div>
@@ -59,7 +58,7 @@
     <div class="carousel__cell"></div>
   </div>
 </div>
-<div class="scene col-4">
+<div class="scene">
 <div class="carousel2">
   <div class="carousel__cell2"></div>
   <div class="carousel__cell2"></div>
@@ -78,7 +77,7 @@
   <div class="carousel__cell2"></div>
 </div>
 </div>
-<div class="scene col-4">
+<div class="scene">
 <div class="carousel3">
   <div class="carousel__cell3"></div>
   <div class="carousel__cell3"></div>
@@ -98,6 +97,7 @@
 </div>
 </div>
 </div>
+<div class="row">
 <div class="carousel-options">
   <p id=invisible>
     <label>
@@ -128,9 +128,9 @@
       <input class="cells-range2" type="range" min="3" max="15" value="10" />
     </label>
   </p>
-  <p>
+  <!--<p>
     <button class="next-button2 btn btn-lg btn-success" id=playbutton>Play</button>
-  </p>
+  </p>-->
   <p id=invisible>
     Orientation:
     <label>
@@ -144,6 +144,23 @@
   </p>
 </div>
 </div>
+</div>
+
+<footer class=" footer-expand-lg fixed-bottom text-center">   <!-- Spin button, betsizing buttons, information tab and also special event which will be hidden.-->
+  <h2 class="text-center" id=info>Crazy cool jackpot is waiting for you!</h2>
+    <button class="btn btn-lg btn-success" id=decreasebet>Decrease bet</button>
+    <button class="btn btn-lg btn-success" id=increasebet>Increase bet</button>
+    <p id=currentbet>Current bet £5</p>
+    <button class="next-button2" id=playbutton>SPIN</button>
+    <div id=specialchest>  <!--special event uncle scroove, player will be able to pick up the random lucky chest which will contain randomly generated price, this event will be triggered through the game of chance itself-->
+      <p id=specialchest_info>Uncle Scroove has got lucky chest for you! Pick one and enjoy your prize!</p>
+      <button class="btn btn-lg btn-success" id=firstchest><i class="fa fa-gift fa-3x"></i></button>
+      <button class="btn btn-lg btn-success" id=secondchest><i class="fa fa-gift fa-3x"></i></button>
+      <button class="btn btn-lg btn-success" id=thirdchest><i class="fa fa-gift fa-3x"></i></button>
+      <img id=uncle src="img/uncle.jpg">
+      <button class="btn btn-lg btn-success" id=continue>Continue</button>
+    </div>
+</footer>
 
 
     <audio id="audio" src="mp3/jazz.mp3" ></audio>
@@ -160,3 +177,4 @@
   </body>
 
   </html>
+
