@@ -311,3 +311,104 @@ border-radius: 50%;
   bottom: 0;
 }
 
+/*responsivness*/
+
+/* Extra small devices (phones, 600px and down) this is optimization for iphone 5 the smallest possible device */
+@media only screen and (max-width: 600px) {
+  #jackpot{
+    display: none;
+  }
+  #crazy{
+    width: 100%;
+  }
+  #info{
+    font-size: 15px;
+  }
+  #decreasebet{
+    font-size: 13px;
+  }
+  #increasebet{
+    font-size: 13px;
+  }
+  #playbutton{
+    font-size: 18px;
+  }
+  #currentbet{
+    font-size: 13px;
+  }
+  #specialchest p{
+    font-size: 12px;
+  }
+  #uncle{
+    display: none;
+  }
+  #continue{
+    font-size: 10px;
+  }
+  .carousel__cell:nth-child(9n+1) {background-image: url(../img/rsz_bar.jpg);
+  }
+  .carousel__cell2:nth-child(9n+1) {background-image: url(../img/rsz_bar.jpg);
+  }
+  .carousel__cell3:nth-child(9n+1) {background-image: url(../img/rsz_bar.jpg);
+  }
+  .carousel__cell:nth-child(9n+3) { background-image: url(../img/rsz_bikini.jpg);
+  }
+  .carousel__cell2:nth-child(9n+3) { background-image: url(../img/rsz_bikini.jpg);
+  }
+  .carousel__cell3:nth-child(9n+3) { background-image: url(../img/rsz_bikini.jpg);
+  }
+  .carousel__cell:nth-child(9n+5) { background-image: url(../img/rsz_uncle.jpg);
+  }
+  .carousel__cell2:nth-child(9n+5) { background-image: url(../img/rsz_uncle.jpg);
+  }
+  .carousel__cell3:nth-child(9n+5) { background-image: url(../img/rsz_uncle.jpg);
+  }
+  .carousel__cell:nth-child(9n+6) { background-image: url(../img/rsz_jackpot1.jpg);
+  }
+  .carousel__cell2:nth-child(9n+6) { background-image: url(../img/rsz_jackpot1.jpg);
+  }
+  .carousel__cell3:nth-child(9n+6) { background-image: url(../img/rsz_jackpot1.jpg);
+  }
+  .carousel__cell:nth-child(9n+7) { background-image: url(../img/rsz_lambo.jpg);
+  }
+  .carousel__cell2:nth-child(9n+7) { background-image: url(../img/rsz_lambo.jpg);
+  }
+  .carousel__cell3:nth-child(9n+7) { background-image: url(../img/rsz_lambo.jpg);
+  }
+  .carousel__cell:nth-child(9n+8) { background-image: url(../img/rsz_ferrari.jpg);
+  }
+  .carousel__cell2:nth-child(9n+8) { background-image: url(../img/rsz_ferrari.jpg);
+  }
+  .carousel__cell3:nth-child(9n+8) { background-image: url(../img/rsz_ferrari.jpg);
+  }
+  .carousel__cell:nth-child(9n+0) { background-image: url(../img/rsz_diamond.jpg);
+  }
+  .carousel__cell2:nth-child(9n+0) { background-image: url(../img/rsz_diamond.jpg);
+  }
+  .carousel__cell3:nth-child(9n+0) { background-image: url(../img/rsz_diamond.jpg);
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1400px) {
+  #crazy{
+    padding-top: 100px;
+    width: 40%;
+    height: 46vh;
+  }
+}
+
