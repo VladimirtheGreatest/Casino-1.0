@@ -23,14 +23,14 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav mr-4">
         <li class="nav-item">
-          <a class="nav-link" data-value="About" href="#About">About</a> </li>
+          <a class="nav-link" data-value="About" href="#">Home</a> </li>
         <li class="nav-item">
           <a class="nav-link " data-value="Genie" href="#Genie">Magical numbers</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " data-value="Carousel" href="#carousel">Stars of fortune</a> </li>
         <li class="nav-item">
-          <a class="nav-link " data-value="Roulette" href="#">Crazy cool jackpot</a> </li>
+          <a class="nav-link " data-value="Crazy" href="crazy.html">Crazy cool jackpot</a> </li>
 
       </ul>
     </div>
@@ -44,15 +44,19 @@
 
 
   <div class="container-fluid  About" id=About>
+    <div class="row">
     <h2 class="text-center col-12">Welcome to my casino! Good luck and have fun!!</h2>
-    <p class="col-12">This Casino project is made by Vladimir Doktorov in 2019. This project should demonstrate my ability to use following languages, HTML, CSS, Javascript + frameworks Bootstrap and Jquery. It should also demonstrate my ability to make fully responsive layouts and change the functionality of DOM elements with Javascript. Casino 1.0 will enable gamblers to play and wager on casino games through the Internet. This project should simulate real online casino and possible client/business solution. All web design, names, games and their logic were written by me except the 3D design model of "carousel" I used and modified code mentioned on my Github page (please check README.md file). You cannot play or deposit real money here. This website is only part of my developer portfolio and it is only for personal use not commercial.</p>
+    <p class="col-12">This Casino project is made by Vladimir Doktorov in 2019. This project should demonstrate my ability to use following languages, HTML, CSS, Javascript. It should also demonstrate my ability to make fully responsive layouts and change the functionality of DOM elements with Javascript. Casino 1.0 will enable gamblers to play and wager on casino games through the Internet. This project should simulate real online casino and possible client/business solution. All web design, names, games and their logic were written by me except the 3D design model of "carousel" I used and modified code mentioned on my Github page (please check README.md file). You cannot play or deposit real money here. This website is only part of my developer portfolio and it is only for personal use not commercial. Deposit first please (top left corner)</p>
+    <x-sign id=fancy class="col text-center">
+      CASINO 1.0
+    </x-sign>
+    </div>
   </div>
 
   <!-- Stars of fortune game -->
 
 
     <div class="Carousel container-fluid" id=carousel>
-      <div class="container">
         <div class="starswin col-12 col-6-medium col-12-small text-center">
           <h1 id=info1>Stars are waiting for you. May the odds be in your favor.</h1>
           <h1 id=jackpotstars></h1>
@@ -102,7 +106,6 @@
     </p>
     </div>
   </div>
-      </div>
     </div>
 
   <!--  Magical numbers game-->
@@ -110,6 +113,9 @@
     <div class="Genie jackpot" id=Genie>
       <div class="container text-center">
         <div class="row">
+          <x-sign class="col text-center" id=fancy1>
+            Magical numbers
+          </x-sign>
           <div class="col-12">
             <button id=button type="button" class="btn btn-primary btn-lg" name="button">Spin</button>
             <h1 id=info>Magical numbers are waiting for you!!</h1>
@@ -131,9 +137,15 @@
 
 
 
+
+
+
+
   <audio id="audio" src="mp3/starwars.mp3" ></audio>
   <audio id="audio2" src="mp3/duel.mp3" ></audio>
   <audio id="audio3" src="mp3/gucci.mp3" ></audio>
+  <audio id="audio4" src="mp3/darkhorse.mp3" ></audio>
+  <audio id="audio5" src="mp3/darkhorsewin.mp3" ></audio>
 
 
 
@@ -145,6 +157,7 @@
 </body>
 
 </html>
+
 
 
 
