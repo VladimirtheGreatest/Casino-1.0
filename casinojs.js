@@ -19,7 +19,18 @@ function playmusic2(){
 function playmusic3(){
        var audio = document.getElementById("audio3");
        audio.play();
-                 }
+};
+function playmusic4(){
+       var audio = document.getElementById("audio4");
+       audio.play();
+};
+function playmusic5(){
+       var audio = document.getElementById("audio5");
+       audio.play();
+};
+
+
+
 
 /*jquery to activate deposit function once button bet clicked*/
 
@@ -105,8 +116,8 @@ function randomnumber() {
         jackpotmoney = 50000;  //resetting jackpot after hitting the one
         document.getElementById("bankroll").innerHTML = "£" + bankroll;
         document.getElementById("jackpot").innerHTML = "Please contact support";
-        audio.pause();
-        playmusic2();
+        audio4.pause();
+        playmusic3();
         clearInterval(interval);
       } else if (extraspin.includes(result)) {
         // button will not be displayed, once player activate the special button, random number function will be replaced with the special event
@@ -116,8 +127,8 @@ function randomnumber() {
         document.getElementById("info").innerHTML = "BIG WIN!!!!!";
         document.getElementById("Genie").className = 'win';
         document.getElementById("info").className = 'infowin';
-        audio.pause();
-        playmusic3();
+        audio4.pause();
+        playmusic5();
         if (bankroll != "0") {
           bankroll += 10;
           document.getElementById("bankroll").innerHTML = "£" + bankroll;
@@ -127,8 +138,8 @@ function randomnumber() {
         document.getElementById("info").innerHTML = "WIN!!!!!";
         document.getElementById("Genie").className = 'win';
         document.getElementById("info").className = 'infowin';
-        audio.pause();
-        playmusic3();
+        audio4.pause();
+        playmusic5();
         if (bankroll != "0") {
           bankroll += 2;
           document.getElementById("bankroll").innerHTML = "£" + bankroll;
@@ -157,6 +168,7 @@ $(document).ready(function() {
       this.pause(); // Stop playing music
       this.currentTime = 0; // Reset time
     });
+    playmusic4();
     randomnumber();
   });
 });
@@ -202,8 +214,8 @@ function specialevent() {
       document.getElementById("bankroll").innerHTML = "£" + bankroll;
       document.getElementById("number").className = 'infowin';
       document.getElementById("Genie").className = 'win';
-      audio.pause();
-      playmusic2();
+      audio4.pause();
+      playmusic5();
       document.getElementById("number").innerHTML = animateResultCount(1, number);
       clearInterval(interval);
     };
@@ -466,6 +478,25 @@ function animateResultCount2(number, target) {
     }, 1);
   }
 }
+
+//fancy headings
+
+const signs = document.querySelectorAll('x-sign')
+const randomIn = (min, max) => (
+  Math.floor(Math.random() * (max - min + 1) + min)
+)
+
+const mixupInterval = el => {
+  const ms = randomIn(2000, 4000)
+  el.style.setProperty('--interval', `${ms}ms`)
+}
+
+signs.forEach(el => {
+  mixupInterval(el)
+  el.addEventListener('webkitAnimationIteration', () => {
+    mixupInterval(el)
+  })
+})
 
 
 
