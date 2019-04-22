@@ -19,7 +19,7 @@ html, h1, h2, h3, h4, h5, h6, a {
   background: #000000;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-bottom: solid 5px #FC5185;
+  border-bottom: solid 5px #fff;
 }
 
 .nav-link, .navbar-brand {
@@ -64,6 +64,33 @@ html, h1, h2, h3, h4, h5, h6, a {
   border-bottom: 3px solid #fff;
 }
 
+/*about text area */
+
+#About{
+  /*background: #000000;  /* fallback for old browsers */
+/*  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+/*  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #090000;
+  width: 100%;
+  height: 100vh;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  overflow: hidden;
+}
+
+#About  p{
+  color: #fff;
+  text-align: justify;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#About h2{
+  padding-top: 80px;
+  padding-bottom: 30px;
+  color: #fff;
+}
+
 /*deposit button top navbar menu*/
 
 #bankroll {
@@ -72,11 +99,18 @@ html, h1, h2, h3, h4, h5, h6, a {
   padding-top: 4px;
   color: #fff;
 }
+#deposit{
+  background-color: inherit;
+  border: #fff 1px solid;
+}
+#jackpot{
+  color: #f2f;
+}
 
 /*magical numbers section*/
 
 #Genie {
-  background-color: #15242d;
+  background-image: url(../img/BG.jpg);
   width: 100%;
   height: 100vh;
   font-family: arial, sans-serif;
@@ -86,6 +120,17 @@ html, h1, h2, h3, h4, h5, h6, a {
   border-top: 3px solid #fff;
   border-bottom: 3px solid #fff;
   padding-top: 180px;
+}
+
+#button{
+  background-color: inherit;
+  border: #fff 1px solid;
+  border-radius: 50%;
+  font-size: 30px;
+}
+
+#button:hover{
+  font-weight: bolder;
 }
 
 /*special event button hidden until specific event occurs*/
@@ -168,38 +213,38 @@ html, h1, h2, h3, h4, h5, h6, a {
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
   0% {
-    background-color: red;
+    background-image: url(../img/BG.jpg);
   }
 
   25% {
-    background-color: yellow;
+      background-image: url(../img/gold.jpg);
   }
 
   50% {
-    background-color: red;
+      background-image: url(../img/money.jpg);
   }
 
   100% {
-    background-color: yellow;
+      background-image: url(../img/BG.jpg);
   }
 }
 
 /* Standard syntax */
 @keyframes example {
   0% {
-    background-color: red;
+      background-image: url(../img/BG.jpg);
   }
 
   25% {
-    background-color: yellow;
+      background-image: url(../img/gold.jpg);
   }
 
   50% {
-    background-color: red;
+      background-image: url(../img/money.jpg);
   }
 
   100% {
-    background-color: yellow;
+      background-image: url(../img/BG.jpg);
   }
 }
 
@@ -254,6 +299,11 @@ html, h1, h2, h3, h4, h5, h6, a {
   }
   #About h2{
     font-size: 20px;
+  }
+  #About{
+    height: 120vh;
+    padding-left:5px;
+    padding-right: 5px;
   }
 }
 
@@ -328,12 +378,13 @@ html, h1, h2, h3, h4, h5, h6, a {
   line-height: 116px;
   font-size: 80px;
   font-weight: bold;
-  color: white;
+  color: #fff;
+  text-shadow: 2px 2px #000 ;
   text-align: center;
   transition: transform 5s, opacity 1s;
 }
 
-.carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+1) { background: hsla(  0, 0%, 0%, 1); }
 .carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
 .carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.8); }
 .carousel__cell:nth-child(9n+4) { background: hsla(120, 100%, 50%, 0.8); }
@@ -379,6 +430,8 @@ html, h1, h2, h3, h4, h5, h6, a {
   height: 140px;
   margin: 80px auto;
   perspective: 1px;
+  -webkit-animation: flash linear 5s 4;
+  animation: flash linear 5s 4;
 }
 
 /*replacing scene class while spinning*/
@@ -418,31 +471,57 @@ html, h1, h2, h3, h4, h5, h6, a {
 #playbutton{
   position: relative;
   bottom: 70px;
+  background-color: black;
+  border: #fff 1px solid;
+  border-radius: 50%;
+  font-size: 30px;
 }
 
-/*about text area */
-
-#About{
-  background: #000000;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 100%;
-  height: 100vh;
-  padding-top: 80px;
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
-  overflow: hidden;
+#playbutton:hover{
+  font-weight: bolder;
 }
 
-#About  p{
-  color: #fff;
-  text-align: justify;
+/*fancy headings*/
+
+x-sign {
+  --interval: 1s;
+  font-size: 30px;
+  text-shadow:
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker steps(100) var(--interval) 1s infinite;
 }
 
-#About h2{
-  padding-bottom: 30px;
-  color: #fff;
+x-sign:nth-of-type(1) {
+  color: yellow;
+  --color1: yellow;
+  --color2: lime;
+  --color3: green;
+  --color4: darkgreen;
+  font-family: Monoton;
 }
+
+@keyframes flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
+
+#fancy{
+  font-size: 400%;
+  padding-top: 100px;
+}
+
+#fancy1{
+  font-size: 300%;
+  padding-bottom: 10px;
+}
+
 
 
 
