@@ -1,2 +1,9 @@
 # Casino-1.0
-This is my very first JavaScript project. I will create online casino using mostly HTML, CSS and JavaScript + its frameworks. Casino 1.0  will enable gamblers to play and wager on casino games through the Internet. I will try to implement games such as slots, blackjack and other games of chance so I can improve my JavaScript knowledge.
+
+https://mycasino.netlify.com/
+
+1. DEPOSIT FIRST (TOP LEFT CORNER)
+2. CHOOSE THE GAME YOU WISH TO PLAY
+3. CLICK ON THE SPIN BUTTON, GOOD LUCK AND HAVE FUN!
+
+Casino 1.0  will enable gamblers to play and wager on casino games through the Internet. You can choose from 3 different games. Stars of fortune is a regular "lucky spining wheel" with star wars theme. Crazy cool jackpot is a typical old school slot machine with 3 reels. Magical numbers is a random number generating machine. This project should simulate real online casino. Progressive jackpot is increasing by playing all games. You have a pretty solid chance to win since this is just a project for fun and yes I had so much fun doing this project. For the 3d model "carousel" I used and modified https://desandro.mit-license.org/, everything else, code, logic is done by me. I used images from www.unsplash.com. You cannot play or deposit real money here. This website is only part of my developer portfolio and it is only for personal use not commercial.
