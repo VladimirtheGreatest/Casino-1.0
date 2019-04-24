@@ -14,7 +14,7 @@
 <body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg fixed-top ">
-    <button id=deposit type="button" class="btn btn-primary btn-lg navbar-brand" name="button">Deposit</button>
+    <button id=deposit type="button" class="btn btn-lg navbar-brand" name="button">Deposit</button>
     <h2 id=bankroll class="nav-brand">£ 0</h2>
     <h2 class="flash nav-brand" id=jackpot> Current jackpot: £50000</h2>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,9 @@
 
     <div class="Carousel container-fluid" id=carousel>
         <div class="starswin col-12 col-6-medium col-12-small text-center">
+          <x-sign class="col text-center" id=fancy2>
+            Stars of fortune
+          </x-sign>
           <h1 id=info1>Stars are waiting for you. May the odds be in your favor.</h1>
           <h1 id=jackpotstars></h1>
         </div>
@@ -111,7 +114,7 @@
   <!--  Magical numbers game-->
   <div class="wrapper">
     <div class="Genie jackpot" id=Genie>
-      <div class="container text-center">
+      <div class="container text-center" id=magicalcontainer>
         <div class="row">
           <x-sign class="col text-center" id=fancy1>
             Magical numbers
