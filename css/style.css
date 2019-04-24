@@ -32,8 +32,7 @@ html, h1, h2, h3, h4, h5, h6, a {
 }
 
 .nav-link:hover {
-  background: #f4f4f4;
-  color: #FC5185;
+  color: yellow;
   font-weight: bold;
 }
 
@@ -67,9 +66,6 @@ html, h1, h2, h3, h4, h5, h6, a {
 /*about text area */
 
 #About{
-  /*background: #000000;  /* fallback for old browsers */
-/*  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-/*  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: #090000;
   width: 100%;
   height: 100vh;
@@ -99,10 +95,17 @@ html, h1, h2, h3, h4, h5, h6, a {
   padding-top: 4px;
   color: #fff;
 }
+
 #deposit{
-  background-color: inherit;
-  border: #fff 1px solid;
+  background-color: #fff;
+  font-weight: bold;
+  color: black;
 }
+
+#deposit:hover{
+  background-color: yellow;
+}
+
 #jackpot{
   color: #f2f;
 }
@@ -110,7 +113,7 @@ html, h1, h2, h3, h4, h5, h6, a {
 /*magical numbers section*/
 
 #Genie {
-  background-image: url(../img/BG.jpg);
+  background-image: url(../img/blackhole.jpg);
   width: 100%;
   height: 100vh;
   font-family: arial, sans-serif;
@@ -123,14 +126,19 @@ html, h1, h2, h3, h4, h5, h6, a {
 }
 
 #button{
-  background-color: inherit;
-  border: #fff 1px solid;
+  background-color: #000;
+  border: 3px #fff solid;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
   border-radius: 50%;
   font-size: 30px;
 }
 
 #button:hover{
-  font-weight: bolder;
+  background-color: yellow;
+  color: black;
 }
 
 /*special event button hidden until specific event occurs*/
@@ -185,7 +193,7 @@ html, h1, h2, h3, h4, h5, h6, a {
   animation-iteration-count: 4;
 }
 
-/*spin primary default background*/
+/*spin primary default background, this background will be activated after winning*/
 
 .spin {
   background-image: url(../img/BG.jpg);
@@ -304,6 +312,9 @@ html, h1, h2, h3, h4, h5, h6, a {
     height: 120vh;
     padding-left:5px;
     padding-right: 5px;
+  }
+  #fancy2{
+    display: none;
   }
 }
 
@@ -448,8 +459,8 @@ html, h1, h2, h3, h4, h5, h6, a {
 /*info area for the game stars of the fortune*/
 
 #info1{
-  color: #bb0a1e;
-  text-shadow: 2px 2px #fff;
+  color: #fff;
+  text-shadow: 2px 2px #bb0a1e;
   -webkit-animation: flash linear 10s infinite;
   animation: flash linear 10s infinite;
   font-weight: bold;
@@ -471,14 +482,21 @@ html, h1, h2, h3, h4, h5, h6, a {
 #playbutton{
   position: relative;
   bottom: 70px;
-  background-color: black;
   border: #fff 1px solid;
   border-radius: 50%;
   font-size: 30px;
+  background-color: #000;
+  border: 3px #fff solid;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 #playbutton:hover{
-  font-weight: bolder;
+  cursor: grab;
+  color: black;
+  background-color: yellow;
 }
 
 /*fancy headings*/
@@ -521,7 +539,9 @@ x-sign:nth-of-type(1) {
   font-size: 300%;
   padding-bottom: 10px;
 }
-
+#fancy2{
+    font-size: 44px;
+}
 
 
 
