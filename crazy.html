@@ -15,7 +15,7 @@
 
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg fixed-top ">
-    <button id=deposit type="button" class="btn btn-primary btn-lg navbar-brand" name="button">Deposit</button>
+    <button id=deposit type="button" class="btn btn-lg navbar-brand" name="button">Deposit</button>
     <h2 id=bankroll class="nav-brand">£ 0</h2>
     <h2 class="flash nav-brand" id=jackpot> Current jackpot: £50000</h2>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav mr-4">
         <li class="nav-item">
-          <a class="nav-link" data-value="About" href="casino.html">About</a> </li>
+          <a class="nav-link" data-value="About" href="casino.html">Home</a> </li>
         <li class="nav-item">
           <a class="nav-link " data-value="Genie" href="casino.html#Genie">Magical numbers</a>
         </li>
@@ -146,17 +146,21 @@
 </div>
 </div>
 
+
 <footer class=" footer-expand-lg fixed-bottom text-center">   <!-- Spin button, betsizing buttons, information tab and also special event which will be hidden.-->
-  <h2 class="text-center" id=info>Crazy cool jackpot is waiting for you!</h2>
+  <!--<h2 class="text-center" id=info>Crazy cool jackpot is waiting for you!</h2>-->
+  <h2><x-sign class="text-center" id=info>
+    Crazy cool jackpot
+  </x-sign></h2>
     <button class="btn btn-lg btn-success" id=decreasebet>Decrease bet</button>
     <button class="btn btn-lg btn-success" id=increasebet>Increase bet</button>
     <p id=currentbet>Current bet £5</p>
     <button class="next-button2" id=playbutton>SPIN</button>
     <div class="col-12" id=specialchest>  <!--special event uncle scroove, player will be able to pick up the random lucky chest which will contain randomly generated price, this event will be triggered through the game of chance itself-->
       <p id=specialchest_info>Uncle Scroove has got lucky chest for you! Pick one and enjoy your prize!</p>
-      <button class="btn btn-lg btn-success" id=firstchest><i class="fa fa-gift fa-2x"></i></button>
-      <button class="btn btn-lg btn-success" id=secondchest><i class="fa fa-gift fa-2x"></i></button>
-      <button class="btn btn-lg btn-success" id=thirdchest><i class="fa fa-gift fa-2x"></i></button>
+      <button class="btn btn-lg btn-success" id=firstchest><i class="fa fa-gift fa-1x"></i></button>
+      <button class="btn btn-lg btn-success" id=secondchest><i class="fa fa-gift fa-1x"></i></button>
+      <button class="btn btn-lg btn-success" id=thirdchest><i class="fa fa-gift fa-1x"></i></button>
       <img id=uncle src="img/uncle.jpg">
       <button class="btn btn-lg btn-success" id=continue>Continue</button>
     </div>
@@ -177,5 +181,6 @@
   </body>
 
   </html>
+
 
 
