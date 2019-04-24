@@ -68,11 +68,11 @@ var jackpot = range(0, 1); // 50000 bet multiplier  (jackpot icon visible in the
 
 var smallwin = range(101, 4001); // 1.5 bet multiplier  4% chance to win a spin  (1 clients bet will use 4 spins)
 
-var bigwin = range(28000, 30000); // 10 bet multiplier  2% chance to win
+var bigwin = range(29500, 30000); // 10 bet multiplier
 
-var extraspin = range(40000, 50000); // extra 20 spins, this will be a special feature, 20 auto spins with the special random multiplicator
+var extraspin = range(49000, 50000); // extra 20 spins, this will be a special feature, 20 auto spins with the special random multiplicator
 
-var specialwin = range(50000, 60000); // free spins range which will trigger special win during special event "free spins"
+var specialwin = range(55000, 60000); // free spins range which will trigger special win during special event "free spins"
 
 
 /*this function will find out if player have enough money to play magical numbers, if not, player will be encouraged to deposit before he can wager*/
@@ -497,6 +497,7 @@ signs.forEach(el => {
     mixupInterval(el)
   })
 })
+
 
 
 
