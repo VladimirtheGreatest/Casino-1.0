@@ -5,13 +5,12 @@
 body {
   padding: 0;
   margin: 0;
-  background-image: url(../img/lasvegas.jpg);
-  background-position: 0px -70px;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   overflow: hidden;
   width: 100%;
-  height: 120vh;
+  height: 100%;
 }
 
 html, h1, h2, h3, h4, h5, h6, a {
@@ -83,14 +82,13 @@ html, h1, h2, h3, h4, h5, h6, a {
 
 #crazy{
   width: 48%;
-  height: 100vh;
+  height: 100%;
   padding-top: 78px;
-  background-color:rgba(0, 0, 0, 0.1);
 }
 
 /*footer*/
 
-footer{
+#footer{
   padding-top: 30px;
 }
 
@@ -110,7 +108,7 @@ padding: 15px 32px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
-font-size: 50px;
+font-size: 40px;
 border-radius: 50%;
 }
 
@@ -163,10 +161,13 @@ border-radius: 50%;
 
 #specialchest{
   position: absolute;
-  top: 0;
-  background: black;
+  top: 50%;
+  right: 0;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 100%;
-  height: 100vh;
+  height: 100%;
   visibility: hidden;
 }
 
@@ -218,7 +219,6 @@ border-radius: 50%;
   height: 120px;
   left: 10px;
   top: 10px;
-  border: 2px solid black;
   line-height: 116px;
   font-size: 80px;
   font-weight: bold;
@@ -243,7 +243,6 @@ border-radius: 50%;
   height: 120px;
   left: 10px;
   top: 10px;
-  border: 2px solid black;
   line-height: 116px;
   font-size: 80px;
   font-weight: bold;
@@ -267,7 +266,6 @@ border-radius: 50%;
   height: 120px;
   left: 10px;
   top: 10px;
-  border: 2px solid black;
   line-height: 116px;
   font-size: 80px;
   font-weight: bold;
@@ -349,11 +347,16 @@ border-radius: 50%;
 
 /* Extra small devices (phones, 600px and down) this is optimization for iphone 5 the smallest possible device */
 @media only screen and (max-width: 600px) {
+  body{
+    width: 100%;
+    height: 120vh;
+  }
   #jackpot{
     display: none;
   }
   #crazy{
     width: 100%;
+    height: 100%;
   }
   #info{
     display: none;
@@ -374,7 +377,7 @@ border-radius: 50%;
     font-size: 12px;
   }
   #uncle{
-    display: none;
+    padding-left: 5px;
   }
   #continue{
     font-size: 10px;
@@ -440,9 +443,10 @@ border-radius: 50%;
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1400px) {
   #crazy{
-    padding-top: 100px;
+    padding-top: 50px;
     width: 40%;
     height: 46vh;
+    margin-top: 100px;
   }
 }
 
@@ -478,7 +482,6 @@ x-sign:nth-of-type(1) {
 }
 
 #info{
-  font-size: 200%;
-  background-color:black;
+  font-size: 150%;
 }
 
