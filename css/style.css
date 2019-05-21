@@ -530,6 +530,8 @@ x-sign:nth-of-type(1) {
   }
 }
 
+/*fancy headings*/
+
 #fancy{
   font-size: 400%;
   padding-top: 100px;
@@ -541,6 +543,23 @@ x-sign:nth-of-type(1) {
 }
 #fancy2{
     font-size: 44px;
+}
+
+/*footer*/
+
+#footer{
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#footer ul li a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#footer ul li a:hover{
+  color: yellow;
+  font-weight: bold;
 }
 
 
