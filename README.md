@@ -1,5 +1,10 @@
 # Casino-1.0
 
+<p align="left">
+  <img src="https://mywebkc.com/wp-content/uploads/2015/11/casino.jpg" width="350" title="hover text">
+  
+</p>
+
 https://mycasino.netlify.com/
 
 1. DEPOSIT FIRST (TOP LEFT CORNER)
