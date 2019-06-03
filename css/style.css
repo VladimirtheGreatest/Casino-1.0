@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 
 * { box-sizing: border-box; }
 
@@ -6,10 +6,17 @@ body {
   padding: 0;
   margin: 0;
   background: #f4f4f4;
+  font-family: 'Chivo', sans-serif;
+  font-weight: 300;
 }
 
-html, h1, h2, h3, h4, h5, h6, a {
-  font-family: "Raleway";
+ h1, h2, h3, h4, h5, h6 {
+   font-family: 'Playfair Display', serif;
+   font-weight: 700;
+   font-style: italic;
+}
+
+html{
   scroll-behavior: smooth;
 }
 
@@ -33,7 +40,6 @@ html, h1, h2, h3, h4, h5, h6, a {
 
 .nav-link:hover {
   color: yellow;
-  font-weight: bold;
 }
 
 .navbar-collapse {
@@ -66,25 +72,47 @@ html, h1, h2, h3, h4, h5, h6, a {
 /*about text area */
 
 #About{
-  background: #090000;
+  background: #000000;
   width: 100%;
   height: 100vh;
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
-  overflow: hidden;
+  position: relative;
+  background: url('https://www.casino.org/blog/wp-content/uploads/millenials-gambling.jpg') no-repeat center center/cover;
 }
 
-#About  p{
-  color: #fff;
-  text-align: justify;
-  padding-left: 50px;
-  padding-right: 50px;
+#About:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.7);
+	box-shadow: inset 150px 100px 250px #000000, inset -120px -100px 250px #000000;
 }
 
-#About h2{
-  padding-top: 80px;
-  padding-bottom: 30px;
-  color: #fff;
+.description{
+  position: relative;
+	z-index: 2;
+	width: 65%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	text-align: left;
+  padding-top: 9em;
+}
+
+#About h1{
+  color: #ffffff;
+  font-size: 60px;
+  padding-top: 50px;
+}
+
+#About p{
+  color: #ffffff;
+  font-size: 20px;
 }
 
 /*deposit button top navbar menu*/
@@ -316,6 +344,36 @@ html, h1, h2, h3, h4, h5, h6, a {
   #fancy2{
     display: none;
   }
+  #About h1{
+    font-size: 30px;
+  }
+  #About p{
+    font-size: 15px;
+  }
+}
+
+@media(min-width: 600px) and (max-width: 1200px) {
+  #jackpot{
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  #About h1{
+    font-size: 35px;
+  }
+  #About p{
+    font-size: 20px;
+  }
+  #About{
+    height: 120vh;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .description{
+    width: 50%;
+  }
 }
 
 
@@ -459,8 +517,8 @@ html, h1, h2, h3, h4, h5, h6, a {
 /*info area for the game stars of the fortune*/
 
 #info1{
-  color: #fff;
-  text-shadow: 2px 2px #bb0a1e;
+  color: #000000;
+  text-shadow: 2px 2px #ffff00;
   -webkit-animation: flash linear 10s infinite;
   animation: flash linear 10s infinite;
   font-weight: bold;
@@ -533,8 +591,7 @@ x-sign:nth-of-type(1) {
 /*fancy headings*/
 
 #fancy{
-  font-size: 400%;
-  padding-top: 100px;
+  font-size: 60px;
 }
 
 #fancy1{
@@ -561,7 +618,3 @@ x-sign:nth-of-type(1) {
   color: yellow;
   font-weight: bold;
 }
-
-
-
-
