@@ -1,6 +1,6 @@
 //Global
 
-var bankroll = "0"; //initial bankroll
+var bankroll = "100"; //initial bankroll
 
 var jackpotmoney = 50000; //this will be initial jackpot incrementing with each and every single spin(progressive), after hitting a jackpot it will reset itself to 50000. You can win the jackpot by playing any game
 
