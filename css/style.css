@@ -445,7 +445,7 @@ html{
   border: 2px solid black;
   border-radius: 50%;
   line-height: 116px;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px #000 ;
@@ -518,9 +518,9 @@ html{
 
 #info1{
   color: #000000;
-  text-shadow: 2px 2px #ffff00;
-  -webkit-animation: flash linear 10s infinite;
-  animation: flash linear 10s infinite;
+  text-shadow: 2px 2px #f2f;
+  -webkit-animation: flash linear 6s infinite;
+  animation: flash linear 6s infinite;
   font-weight: bold;
 }
 
