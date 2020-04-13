@@ -1,7 +1,7 @@
 # Lucky Casino project
 
 <p align="left">
-  <img src="https://mywebkc.com/wp-content/uploads/2015/11/casino.jpg" width="350" title="hover text">
+  <img src="https://cmsstorage.rationalcdn.com/assets/psc/assets/common/images/games/roulette/thumb.jpg" width="350" title="hover text">
   
 </p>
 
